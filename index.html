@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система технико-экономического планирования</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Система технико-экономического планирования</h1>
+            <p>Задача объемного планирования для непрерывного химического производства</p>
+        </div>
+
+        <div class="input-section">
+            <h2>Параметры задачи</h2>
+            <div class="params-grid">
+                <div class="param-group">
+                    <label for="components">Количество компонентов (n):</label>
+                    <input type="number" id="components" min="1" value="3">
+                </div>
+                <div class="param-group">
+                    <label for="products">Количество продуктов (m):</label>
+                    <input type="number" id="products" min="1" value="2">
+                </div>
+                <div class="param-group">
+                    <label for="characteristics">Количество характеристик (l):</label>
+                    <input type="number" id="characteristics" min="1" value="2">
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <input type="file" id="loadFile" accept=".json" style="display: none;">
+                <button id="loadButton" class="btn-primary">Загрузить данные</button>
+                <button id="saveJsonButton" class="btn-primary">Сохранить JSON</button>
+                <button id="generateTables" class="btn-primary">Сгенерировать таблицы</button>
+                <button id="generatePdfButton" class="btn-primary">Сгенерировать Latex</button>
+            </div>
+        </div>
+
+        <div id="tablesContainer" class="tables-container" style="display: none;">
+            <div id="lowerBoundsTable" class="table-section"></div>
+            <div id="upperBoundsTable" class="table-section"></div>
+            <div id="componentQualityTable" class="table-section"></div>
+            <div id="productConstraintsTable" class="table-section"></div>
+            <div id="componentConstraintsTable" class="table-section"></div>
+            
+            <div class="solve-section">
+                <button id="solveButton" class="btn-solve">Решить задачу</button>
+            </div>
+        </div>
+
+        <div id="resultsContainer" class="results-container" style="display: none;">
+            <h2>Результаты оптимизации</h2>
+            
+            <div id="costsTable" class="result-section"></div>
+            <div id="outputTable" class="result-section"></div>
+            <div class="result-section">
+                <h3>Максимальная прибыль</h3>
+                <div id="maxProfit" class="profit-value">0 руб.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="simplex.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

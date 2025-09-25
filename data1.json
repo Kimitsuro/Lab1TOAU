@@ -1,0 +1,10 @@
+{
+    "n": 3,
+    "m": 2,
+    "l": 2,
+    "lowerBounds": [[1, 1], [1, 1]],
+    "upperBounds": [[2, 3], [3, 4]],
+    "componentQuality": [[1, 2], [2, 1], [2, 3]],
+    "productConstraints": [[100, 55, 20, 15], [100, 75, 60, 10]],
+    "componentConstraints": [[90, 30, 20, 5], [90, 30, 10, 7], [90, 30, 25, 3]]
+}
